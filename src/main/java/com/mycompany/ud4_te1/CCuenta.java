@@ -8,6 +8,9 @@ public class CCuenta {
     private double saldo;
     private double tipoInteres;
 
+    // Constante para la comisión de retiro
+    private static final double COMISION = 2.0;
+
     // Constructor
     public CCuenta(String nombre, String cuenta, double saldo, double tipoInteres) {
         this.nombre = nombre;
@@ -37,11 +40,6 @@ public class CCuenta {
         return saldo;
     }
 
-    // Método para actualizar el saldo, usado internamente, no necesita setter
-    private void setSaldo(double saldo) {
-        this.saldo = saldo;
-    }
-
     public double getTipoInteres() {
         return tipoInteres;
     }
@@ -66,9 +64,13 @@ public class CCuenta {
         if (cantidad <= 0) {
             throw new Exception("No se puede retirar una cantidad negativa.");
         }
-        if (getSaldo() < cantidad + 2) {
+        if (getSaldo() < cantidad + COMISION) {
             throw new Exception("No hay suficiente saldo.");
         }
-        setSaldo(getSaldo() - (cantidad + 2));
+        setSaldo(getSaldo() - (cantidad + COMISION));
+    }
+
+    public void setSaldo(double saldo) {
+        this.saldo = saldo;
     }
 }
