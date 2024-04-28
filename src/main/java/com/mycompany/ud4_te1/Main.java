@@ -7,7 +7,10 @@ package com.mycompany.ud4_te1;
  * @version 1.0
  */
 public class Main {
-
+    /**
+     * Método principal.
+     * @param args Argumentos de la línea de comandos
+     */
     public static void main(String[] args) {
         CCuenta cuentaTrabajo = new CCuenta("Antonio López", "1000-2365-85-1230456789", 2500, 0);
         double cantidadARetirar = 2300; // Define aquí la cantidad a retirar
